@@ -1,0 +1,73 @@
+---
+title: "Week1 HW"
+author: "Weijian Cai"
+date: "February 3, 2019"
+output: html_document
+---
+
+##load data into dataframe
+```{r}
+mush<- read.csv(file = "https://archive.ics.uci.edu/ml/machine-learning-databases/mushroom/agaricus-lepiota.data", header = FALSE) 
+
+```
+
+##rename the columns according to the data description
+```{r}
+names(mush) <- c("class", "cap-shape", "cap-surface", "cap-color", "bruises", "odor", "gill-attachment", "gill-spacing", "gill-size", "gill-color", "stalk-shape", "stalk-root", "stalk-surface-above-ring", "stalk-surface-below-ring", "stalk-color-above-ring", "stalk-color-below-ring", "veil-type", "veil-color", "ring-number", "ring-type", "spore-print-color", "population", "habitat")
+```
+
+##I expect the color and odor are indicator of poisonous or edible
+```{r}
+sub_mush<-subset(mush,select = c("class","cap-color","odor","veil-color","spore-print-color"))
+
+head(sub_mush)
+```
+
+##d replace the abbreviations used in the data
+```{r}
+sub_mush$class <- gsub("^e$", "edible", sub_mush$class)
+sub_mush$class <- gsub("^p$", "poisonous", sub_mush$class)
+
+sub_mush$"cap-color" <- gsub("^n$", "brown", sub_mush$"cap-color")
+sub_mush$"cap-color" <- gsub("^b$", "buff", sub_mush$"cap-color")
+sub_mush$"cap-color" <- gsub("^c$", "cinnamon", sub_mush$"cap-color")
+sub_mush$'cap-color' <- gsub("^g$", "gray", sub_mush$'cap-color')
+sub_mush$'cap-color' <- gsub("^r$", "green", sub_mush$'cap-color')
+sub_mush$'cap-color' <- gsub("^p$", "pink", sub_mush$'cap-color')
+sub_mush$'cap-color' <- gsub("^u$", "purple", sub_mush$'cap-color')
+sub_mush$'cap-color' <- gsub("^r$", "red", sub_mush$'cap-color')
+sub_mush$'cap-color' <- gsub("^w$", "white", sub_mush$'cap-color')
+sub_mush$'cap-color' <- gsub("^y$", "yellow", sub_mush$'cap-color')
+sub_mush$'cap-color' <- gsub("^t$", "bruises", sub_mush$'cap-color')
+sub_mush$'cap-color' <- gsub("^f$", "no", sub_mush$'cap-color')
+
+sub_mush$odor <- gsub("^a$", "almond", sub_mush$odor)
+sub_mush$odor <- gsub("^l$", "anise", sub_mush$odor)
+sub_mush$odor <- gsub("^c$", "creosote", sub_mush$odor)
+sub_mush$odor <- gsub("^y$", "fishy", sub_mush$odor)
+sub_mush$odor <- gsub("^f$", "foul", sub_mush$odor)
+sub_mush$odor <- gsub("^m$", "musty", sub_mush$odor)
+sub_mush$odor <- gsub("^n$", "none", sub_mush$odor)
+sub_mush$odor <- gsub("^p$", "pungent", sub_mush$odor)
+sub_mush$odor <- gsub("^s", "spicy", sub_mush$odor)
+
+sub_mush$'veil-color' <- gsub("^n$", "brown", sub_mush$'veil-color')
+sub_mush$'veil-color' <- gsub("^o$", "orange", sub_mush$'veil-color')
+sub_mush$'veil-color' <- gsub("^w$", "white", sub_mush$'veil-color')
+sub_mush$'veil-color' <- gsub("^y$", "yellow", sub_mush$'veil-color')
+
+sub_mush$'spore-print-color' <- gsub("^k$", "black", sub_mush$'spore-print-color')
+sub_mush$'spore-print-color' <- gsub("^n$", "brown", sub_mush$'spore-print-color')
+sub_mush$'spore-print-color' <- gsub("^b$", "buff", sub_mush$'spore-print-color')
+sub_mush$'spore-print-color' <- gsub("^h$", "chocolate", sub_mush$'spore-print-color')
+sub_mush$'spore-print-color' <- gsub("^r$", "green", sub_mush$'spore-print-color')
+sub_mush$'spore-print-color' <- gsub("^o$", "orange", sub_mush$'spore-print-color')
+sub_mush$'spore-print-color' <- gsub("^u$", "purple", sub_mush$'spore-print-color')
+sub_mush$'spore-print-color' <- gsub("^w$", "white", sub_mush$'spore-print-color')
+sub_mush$'spore-print-color' <- gsub("^y$", "yellow", sub_mush$'spore-print-color')
+
+head(sub_mush)
+```
+
+
+
