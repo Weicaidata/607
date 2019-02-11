@@ -1,0 +1,111 @@
+---
+title: "Week2_HW_607"
+author: "Weijian Cai"
+date: "February 9, 2019"
+output: html_document
+---
+### Create talbe movies,respondents,survey in movie_survey database.And populate data into tables.
+CREATE TABLE `movie_survey`.`movies` (
+  `movies_id` INT NOT NULL,
+  `moviesname` VARCHAR(45) NULL,
+  `type` VARCHAR(45) NULL,
+  PRIMARY KEY (`movies_id`));
+  
+INSERT INTO `movie_survey`.`movies` (`movies_id`, `moviesname`, `type`) VALUES ('1', 'The Lego Movie 2', 'animation');
+INSERT INTO `movie_survey`.`movies` (`movies_id`, `moviesname`, `type`) VALUES ('2', 'What Men Want', 'comedy');
+INSERT INTO `movie_survey`.`movies` (`movies_id`, `moviesname`, `type`) VALUES ('3', 'Cold Pursuit', 'action');
+INSERT INTO `movie_survey`.`movies` (`movies_id`, `moviesname`, `type`) VALUES ('4', 'The Final Wish', 'horror');
+INSERT INTO `movie_survey`.`movies` (`movies_id`, `moviesname`, `type`) VALUES ('5', 'Glass', 'drama');
+INSERT INTO `movie_survey`.`movies` (`movies_id`, `moviesname`, `type`) VALUES ('6', 'The Upside', 'Comedy');
+
+
+CREATE TABLE `movie_survey`.`respondents` (
+  `respondents_id` INT NOT NULL,
+  `firstname` VARCHAR(45) NULL,
+  `lastname` VARCHAR(45) NULL,
+  `sex` VARCHAR(45) NULL,
+  PRIMARY KEY (`respondents_id`));
+  
+ 
+INSERT INTO `movie_survey`.`respondents` (`respondents_id`, `firstname`, `lastname`, `sex`) VALUES ('1', 'jacky', 'jordon', 'm');
+INSERT INTO `movie_survey`.`respondents` (`respondents_id`, `firstname`, `lastname`, `sex`) VALUES ('2', 'tom', 'peter', 'm');
+INSERT INTO `movie_survey`.`respondents` (`respondents_id`, `firstname`, `lastname`, `sex`) VALUES ('3', 'rose', 'white', 'f');
+INSERT INTO `movie_survey`.`respondents` (`respondents_id`, `firstname`, `lastname`, `sex`) VALUES ('4', 'susan', 'lu', 'f');
+INSERT INTO `movie_survey`.`respondents` (`respondents_id`, `firstname`, `lastname`, `sex`) VALUES ('5', 'ken', 'harroon', 'm');
+
+CREATE TABLE `movie_survey`.`survey` (
+  `survey_id` INT NOT NULL,
+  `respondent_id` INT NULL,
+  `movie_id` INT NULL,
+  `score` INT NULL,
+  `date` DATE NULL,
+  PRIMARY KEY (`survey_id`));
+
+INSERT INTO `movie_survey`.`survey` (`survey_id`, `respondent_id`, `movie_id`, `score`, `date`) VALUES ('1', '1', '2', '5', '2019-02-09');
+INSERT INTO `movie_survey`.`survey` (`survey_id`, `respondent_id`, `movie_id`, `score`, `date`) VALUES ('3', '1', '1', '4', '2019-02-09');
+INSERT INTO `movie_survey`.`survey` (`survey_id`, `respondent_id`, `movie_id`, `score`, `date`) VALUES ('2', '1', '3', '3', '2019-02-09');
+INSERT INTO `movie_survey`.`survey` (`survey_id`, `respondent_id`, `movie_id`, `score`, `date`) VALUES ('4', '1', '4', '4', '2019-02-09');
+INSERT INTO `movie_survey`.`survey` (`survey_id`, `respondent_id`, `movie_id`, `score`, `date`) VALUES ('5', '1', '5', '5', '2019-02-09');
+INSERT INTO `movie_survey`.`survey` (`survey_id`, `respondent_id`, `movie_id`, `score`, `date`) VALUES ('6', '2', '1', '5', '2019-02-08');
+INSERT INTO `movie_survey`.`survey` (`survey_id`, `respondent_id`, `movie_id`, `score`, `date`) VALUES ('7', '2', '2', '4', '2019-02-08');
+INSERT INTO `movie_survey`.`survey` (`survey_id`, `respondent_id`, `movie_id`, `score`, `date`) VALUES ('8', '2', '3', '4', '2019-02-08');
+INSERT INTO `movie_survey`.`survey` (`survey_id`, `respondent_  id`, `movie_id`, `score`, `date`) VALUES ('9', '2', '4', '1', '2019-02-08');
+INSERT INTO `movie_survey`.`survey` (`survey_id`, `respondent_id`, `movie_id`, `score`, `date`) VALUES ('10', '2', '5', '5', '2019-02-08');
+INSERT INTO `movie_survey`.`survey` (`survey_id`, `respondent_id`, `movie_id`, `score`, `date`) VALUES ('11', '3', '1', '4', '2019-02-07');
+INSERT INTO `movie_survey`.`survey` (`survey_id`, `respondent_id`, `movie_id`, `score`, `date`) VALUES ('12', '3', '2', '5', '2019-02-07');
+INSERT INTO `movie_survey`.`survey` (`survey_id`, `respondent_id`, `movie_id`, `score`, `date`) VALUES ('13', '3', '3', '4', '2019-02-07');
+INSERT INTO `movie_survey`.`survey` (`survey_id`, `respondent_id`, `movie_id`, `score`, `date`) VALUES ('14', '3', '4', '5', '2019-02-07');
+INSERT INTO `movie_survey`.`survey` (`survey_id`, `respondent_id`, `movie_id`, `score`, `date`) VALUES ('15', '3', '5', '3', '2019-02-07');
+INSERT INTO `movie_survey`.`survey` (`survey_id`, `respondent_id`, `movie_id`, `score`, `date`) VALUES ('16', '4', '1', '5', '2019-02-06');  
+INSERT INTO `movie_survey`.`survey` (`survey_id`, `respondent_id`, `movie_id`, `score`, `date`) VALUES ('17', '4', '2', '3', '2019-02-6');
+INSERT INTO `movie_survey`.`survey` (`survey_id`, `respondent_id`, `movie_id`, `score`, `date`) VALUES ('18', '4', '4', '5', '2019-02-06');
+INSERT INTO `movie_survey`.`survey` (`survey_id`, `respondent_id`, `movie_id`, `score`, `date`) VALUES ('19', '4', '5', '3', '2019-02-06');
+INSERT INTO `movie_survey`.`survey` (`survey_id`, `respondent_id`, `movie_id`, `score`, `date`) VALUES ('20', '4', '3', '5', '2019-02-06');
+INSERT INTO `movie_survey`.`survey` (`survey_id`, `respondent_id`, `movie_id`, `score`, `date`) VALUES ('21', '5', '1', '3', '2019-02-05');
+INSERT INTO `movie_survey`.`survey` (`survey_id`, `respondent_id`, `movie_id`, `score`, `date`) VALUES ('22', '5', '2', '5', '2019-02-05');
+INSERT INTO `movie_survey`.`survey` (`survey_id`, `respondent_id`, `movie_id`, `score`, `date`) VALUES ('23', '5', '3', '4', '2019-02-05');
+INSERT INTO `movie_survey`.`survey` (`survey_id`, `respondent_id`, `movie_id`, `score`, `date`) VALUES ('24', '5', '4', '5', '2019-02-05');    
+INSERT INTO `movie_survey`.`survey` (`survey_id`, `respondent_id`, `movie_id`, `score`, `date`) VALUES ('25', '5', '5', '4', '2019-02-05');  
+
+```{r}
+library(RMySQL)
+library(DBI)
+library(dplyr)
+```
+### connect mysql database through R
+```{r}
+mydb <-dbConnect(MySQL(), user='wei', password='0000', dbname='movie_survey', host='localhost')
+```
+
+###write sql to join three tables
+```{R}
+sr<- dbGetQuery(mydb, "
+                select s.survey_id, r.firstname, r.lastname, r.sex,                                   m.moviesname, m.type, s.score,s.date
+                from survey s
+                     join movies m on s.movie_id = m.movies_id
+                     join respondents r on s.respondent_id = r.respondents_id")
+head(sr)
+```
+
+
+###create a subset sub_sr
+```{r}
+sub_sr<-sr%>%select(moviesname,score)
+
+head(sub_sr,n=10)
+```
+
+###calculate the average of score.  
+```{r}
+sub_sr %>%
+  group_by(moviesname) %>%
+  summarise(avg_score = mean(score))
+```
+
+
+
+
+
+
+
+
