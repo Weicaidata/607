@@ -1,0 +1,82 @@
+---
+title: "Assignment3_607"
+author: "Weijian Cai"
+date: "February 16, 2019"
+output: html_document
+---
+
+###Problem 3
+####(A)
+load the raw data into R
+```{r}
+raw.data <-"555-1239Moe Szyslak(636) 555-0113Burns, C. Montgomery555-6542Rev. Timothy Lovejoy555 8904Ned Flanders636-555-3226Simpson, Homer5553642Dr. Julius Hibbert"
+raw.data
+```
+
+we use stringr library for data manipulation
+```{r}
+library(stringr)
+```
+
+looking for alphabetic characters, also contain period,commas and empty spaces, and add a quantifier that at least length two.
+```{r}
+name <- unlist(str_extract_all(raw.data, "[[:alpha:]., ]{2,}"))
+name
+```
+
+####(B)
+
+find any character text from 2 to 3 character follow by "."
+```{R}
+title<-str_detect(name,"[\\w]{2,3}\\. ")
+cbind(name,title)
+```
+
+####(C)
+```{r}
+sec_name = str_detect(name,"\\s[A-z]\\. ")
+cbind(name,sec_name)
+```
+
+###Question 4
+####(A)[0-9]+\\$
+One or more digit numbber and follow by "$"sign
+
+```{r}
+sample1 = 'abc123$123'
+a<-str_extract_all(sample1,'[0-9]+\\$')
+a
+```
+
+####(B)\\b[a-z]{1,4}\\b
+word edge and charater letter with length 1 to 4 and word edge
+
+```{r}
+example2 = 'abcde abc'
+str_extract_all(example2,"\\b[a-z]{1,4}\\b")
+```
+
+
+####(C).*?\\.txt$
+Start with any character,  * means zero or more time, ? means optional or one times, a period,txt at the end.
+
+```{r}
+example3 ='.local.txt'
+str_extract_all(example3,".*?\\.txt$")
+```
+
+
+####(D)\\d{2}/\\d{2}/\\d{4}
+Any digital with length2/any digital with length 2/ any digital with length of 4.
+```{r}
+example4= '02/17/2019'
+str_extract_all(example4,"\\d{2}/\\d{2}/\\d{4}")
+```
+
+####(E)<(.+?)>.+?</\\1>
+'<any character> any character </contents of group 1>'
+```{r}
+example5 = '<any>anything</any>'
+str_extract_all(example5,"<(.+?)>.+?</\\1>")
+```
+
