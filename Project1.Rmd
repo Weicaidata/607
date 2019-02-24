@@ -1,0 +1,55 @@
+---
+title: "Project1"
+author: "Weijian Cai"
+date: "February 23, 2019"
+output: html_document
+---
+
+Load the requried tidyverse library package.
+```{r}
+library(readr)
+library(stringr)
+```
+
+Load data from URL.
+```{r}
+url<-"https://raw.githubusercontent.com/Weicaidata/607/master/tournamentinfo.txt"
+tournament<-read_tsv(url,col_names =TRUE)
+head(tournament,n=8 )
+```
+
+Remove the title for first 3 lines for later data cleaning.
+```{R}
+tournamenttbl<- tournament[-c(1:3),]
+head(tournamenttbl)
+```
+
+notice that each record contains two lines. we create line1 and line2 for later data extrattion.
+```{r}
+line1 <- tournamenttbl[seq(1, length(tournamenttbl),by = 3)]
+line2 <- tournamenttbl[seq(2, length(tournamenttbl),by = 3)]
+```
+
+extract each piece infomation from line1 and line2.
+```{r}
+pairNum <- as.integer(str_extract(line1, "\\d+"))
+Name <- str_trim(str_extract(line1, "(\\w+\\s){2,3}"))
+state <- str_extract(line2, "\\w+")
+Points <- as.numeric(str_extract(line1, "\\d+\\.\\d+"))
+Rating <- as.integer(str_extract(str_extract(line2, "[^\\d]\\d{3,4}[^\\d]"), "\\d+"))
+Opponents <- str_extract_all(str_extract_all(line1, "\\d+\\|"), "\\d+")
+```
+
+To calculate opponents' Mean Rating.(the code below found it on internet)
+```{r}
+OpponementsRating <- length(line1)
+for (i in 1:length(line1)) { 
+  OpponementsRating[i] <- round(mean(Rating[as.numeric(unlist(Opponents[pairNum[i]]))]), digits = 0) 
+}
+Tournamentlist <- data.frame(Name,state, Points, Rating, OpponementsRating)
+Tournamentlist
+```
+
+
+
+
