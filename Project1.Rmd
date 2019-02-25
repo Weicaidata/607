@@ -20,14 +20,16 @@ head(tournament,n=8 )
 
 Remove the title for first 3 lines for later data cleaning.
 ```{R}
-tournamenttbl<- tournament[-c(1:3),]
-head(tournamenttbl)
+tourt<- tournament[-c(1:3),]
+head(tourt)
 ```
+
+
 
 notice that each record contains two lines. we create line1 and line2 for later data extrattion.
 ```{r}
-line1 <- tournamenttbl[seq(1, length(tournamenttbl),by = 3)]
-line2 <- tournamenttbl[seq(2, length(tournamenttbl),by = 3)]
+line1 <- tourt[seq(1, nrow(tourt),by = 3),]
+line2 <- tourt[seq(2, nrow(tourt),by =3),]
 ```
 
 extract each piece infomation from line1 and line2.
@@ -40,7 +42,7 @@ Rating <- as.integer(str_extract(str_extract(line2, "[^\\d]\\d{3,4}[^\\d]"), "\\
 Opponents <- str_extract_all(str_extract_all(line1, "\\d+\\|"), "\\d+")
 ```
 
-To calculate opponents' Mean Rating.(the code below found it on internet)
+To calculate opponents' Mean Rating.
 ```{r}
 OpponementsRating <- length(line1)
 for (i in 1:length(line1)) { 
@@ -50,6 +52,9 @@ Tournamentlist <- data.frame(Name,state, Points, Rating, OpponementsRating)
 Tournamentlist
 ```
 
-
+write csv file into working directory
+```{r}
+write.table(Tournamentlist, file = "tournamentfinal.csv",row.names=FALSE, na="",col.names=TRUE, sep=",")
+```
 
 
