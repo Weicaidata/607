@@ -22,13 +22,13 @@ library(stringr)
 Load data from URL.
 ```{r}
 url<-"https://raw.githubusercontent.com/Weicaidata/607/master/tournamentinfo.txt"
-tournament<-read_tsv(url,col_names =TRUE)
+tournament<-readLines(url,warn=FALSE  )
 head(tournament,n=8 )
 ```
 
-Remove the title for first 3 lines for later data cleaning.
+Remove the title for first 4 lines for later data cleaning.
 ```{R}
-tourt<- tournament[-c(1:3),]
+tourt<- tournament[-c(0:4)]
 head(tourt)
 ```
 
@@ -36,8 +36,9 @@ head(tourt)
 
 notice that each record contains two lines. we create line1 and line2 for later data extrattion.
 ```{r}
-line1 <- tourt[seq(1, nrow(tourt),by = 3),]
-line2 <- tourt[seq(2, nrow(tourt),by =3),]
+line1 <- tourt[seq(1, length(tourt), by =3)]
+line2 <- tourt[seq(2, length(tourt),by =3)]
+line1
 ```
 
 extract each piece infomation from line1 and line2.
