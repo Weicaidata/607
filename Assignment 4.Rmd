@@ -1,0 +1,57 @@
+---
+title: "HW4"
+author: "Weijian Cai"
+date: "March 3, 2019"
+output: html_document
+---
+load the required library
+```{r}
+library(readr)
+library(tidyr)
+library(dplyr)
+```
+
+load csv file into R
+```{R}
+raw<- read.csv("https://raw.githubusercontent.com/Weicaidata/607/master/airline%20database.csv")
+str(raw)
+raw
+```
+
+use tidyr to pivot table from wide to long table for further analysis
+```{r}
+df_gather <- gather(raw,city,flightnum,Los.Angeles:Seattle)
+df_gather
+```
+
+use spread functon to add delayed and 'on time' columns
+```{r}
+df_spread <- spread(df_gather,Status,flightnum)
+df_spread
+```
+
+use dpylr to add another two column ontime percentage and delayed percentage.
+```{r}
+df <- df_spread %>% 
+  mutate(total= delayed +df_spread$`on time`,ontime_perc=`on time`/total,delayed_perc=delayed/total)
+df
+```
+
+
+use bar to compare the ontime percentage between two lines, find that they are very similar, not much differnt.
+```{r}
+library(ggplot2)
+ggplot(df, aes(x = Airline, y=ontime_perc, fill = city)) +
+    geom_bar(stat="identity",position="dodge") + 
+    xlab("Airline") + ylab("ontime_perc") 
+
+```
+
+however, the delayed percentage between two airlines, we can see that ALaska airline of each lines are lower than AM WEST, it mean ALASKA is doing better than AM WEST.
+```{r}
+
+ggplot(df, aes(x = Airline, y=delayed_perc, fill = city)) +
+    geom_bar(stat="identity",position="dodge") + 
+    xlab("Airline") + ylab("delayed_perc") 
+```
+
