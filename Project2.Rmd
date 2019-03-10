@@ -11,7 +11,8 @@ library(dplyr)
 library(ggplot2)
 ```
 
-load csv dataset into R
+load csv dataset by Sunny Mehta into R
+
 ```{r}
 url <- "https://raw.githubusercontent.com/Weicaidata/607/master/State_MedianRentalPricePerSqft_AllHomes.csv"
 df1 <- read.csv(url,header=TRUE)
