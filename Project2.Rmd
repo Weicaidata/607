@@ -20,10 +20,14 @@ df1 <- read.csv(url,header=TRUE)
 head(df1)
 ```
 
-rename the columns for better understanding the data, and use glimpse function in dplyr to examine the dataset
+rename the columns for better understanding the data
 ```{r}
 colnames(df1) <- c("state","size","aJan","bFeb","cMar","dApr","eMay","fJun","gJul","hAug","iSep","jOct","kNov","lDec")
 head(df1)
+```
+
+use glimpse function in dplyr to examine the dataset, and use summary function to see if there is missing value
+```{r}
 glimpse(df1)
 summary(df1)
 
