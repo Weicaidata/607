@@ -1,0 +1,81 @@
+---
+title: "Project2"
+author: "Weijian Cai"
+date: "March 9, 2019"
+output: html_document
+---
+load the required library to tidy and modify data for further analysis
+```{r}
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+```
+
+load csv dataset into R
+```{r}
+url <- "https://raw.githubusercontent.com/Weicaidata/607/master/State_MedianRentalPricePerSqft_AllHomes.csv"
+df1 <- read.csv(url,header=TRUE)
+head(df1)
+```
+
+rename the columns for better understanding the data, and use glimpse function in dplyr to examine the dataset
+```{r}
+colnames(df1) <- c("state","size","aJan","bFeb","cMar","dApr","eMay","fJun","gJul","hAug","iSep","jOct","kNov","lDec")
+head(df1)
+glimpse(df1)
+summary(df1)
+
+```
+
+use gather function from tidyr to make the wide dataset into long, and sort by "size"
+```{r}
+df2 <- gather(df1,"month","sales",3:14) %>% 
+  arrange(size)
+head(df2)
+```
+
+
+##answer question "overall current distribution"
+we can use histgram to see that it is a right skewed distributed, and use summary function to find out the mean, min,max,1st quartille and 3rd quartille.
+```{r}
+hist(df2$sales,main="sales",xlab="Averge")
+summary(df2$sales)
+```
+
+##answer question "sales trend by months"
+use summarise funtion group by"month"
+```{r}
+df3 <- df2 %>% 
+  arrange(month) %>% 
+  group_by(month) %>% 
+  summarise(avg=mean(sales))
+df3
+```
+
+from the graph below, we can see that summer is hot season for sales of house, winter is the low season, which is within our expectation.
+```{r}
+ggplot(data=df3,aes(x=month,y=avg,group=1))+
+  geom_line()+
+  geom_point()+
+  xlab("Month")+
+  ylab("Total")+
+  labs(title="Sales trend by month")
+```
+
+
+##answer question" states sale trend"
+we want to see top 5 largest state's sales over year.
+```{r}
+df6 <- df2 %>% 
+  filter(size<=5)
+head(df6)
+```
+
+NY has most the sales volume compare to others, the sales of other states is more staple all over the year.
+```{r}
+ggplot(df6,aes(x=month,y=sales,color=state,group=state))+
+   geom_line() +
+  xlab('Month')+labs(title = "Top 5 states sales trend")
+```
+
+
