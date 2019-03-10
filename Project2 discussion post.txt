@@ -1,0 +1,10 @@
+Sunny Mehta 
+Zillow data on 2018 Median Rental Price/sqft by State  Attachment
+
+The csv file is attached here. As you can see, the values by month are recorded "wide." After cleaning this up there are interesting things to analyze, including,
+
+-overall current distribution
+
+-trends by state
+
+-overall trends
