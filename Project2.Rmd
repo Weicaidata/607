@@ -72,7 +72,7 @@ df6 <- df2 %>%
 head(df6)
 ```
 
-NY has most the sales volume compare to others, the sales of other states is more staple all over the year.
+NY has most the sales volume compare to others, the sales of other states are more steady all over the year.
 ```{r}
 ggplot(df6,aes(x=month,y=sales,color=state,group=state))+
    geom_line() +
