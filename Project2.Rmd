@@ -49,7 +49,7 @@ summary(df2$sales)
 ```
 
 ##answer question "sales trend by months"
-use summarise funtion group by"month"
+use summarise funtion,grouped by"months" to find the average price for each months.
 ```{r}
 df3 <- df2 %>% 
   arrange(month) %>% 
