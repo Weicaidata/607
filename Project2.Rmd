@@ -4,6 +4,8 @@ author: "Weijian Cai"
 date: "March 9, 2019"
 output: html_document
 ---
+#Zillow data on 2018 Median Rental Price/sqft by State by Sunny Mehta
+
 load the required library to tidy and modify data for further analysis
 ```{r}
 library(tidyr)
@@ -11,8 +13,7 @@ library(dplyr)
 library(ggplot2)
 ```
 
-load csv dataset by Sunny Mehta into R
-
+load csv dataset by into R
 ```{r}
 url <- "https://raw.githubusercontent.com/Weicaidata/607/master/State_MedianRentalPricePerSqft_AllHomes.csv"
 df1 <- read.csv(url,header=TRUE)
@@ -64,7 +65,7 @@ ggplot(data=df3,aes(x=month,y=avg,group=1))+
 ```
 
 
-##answer question" states sale trend"
+##answer question" trend by state"
 we want to see top 5 largest state's sales over year.
 ```{r}
 df6 <- df2 %>% 
@@ -72,7 +73,7 @@ df6 <- df2 %>%
 head(df6)
 ```
 
-NY has most the sales volume compare to others, the sales of other states are more steady all over the year.
+NY has the hightst sales price per sqf compare to other states, buth the price for other states are more steady.
 ```{r}
 ggplot(df6,aes(x=month,y=sales,color=state,group=state))+
    geom_line() +
