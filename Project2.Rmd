@@ -65,7 +65,7 @@ ggplot(data=df3,aes(x=month,y=avg,group=1))+
 ```
 
 
-##answer question" trend by state"
+##answer question" trend by states"
 we want to see top 5 largest state's sales over year.
 ```{r}
 df6 <- df2 %>% 
