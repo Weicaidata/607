@@ -1,6 +1,6 @@
 ---
 title: "DATA607 Project 2: Data Tidying and Transformation"
-author: "Wei Zhou, Weijian Cai, Mia Chen"
+author: "Weijian Cai,Wei Zhou, Mia Chen"
 date: "March 10, 2019"
 output: html_document
 ---
