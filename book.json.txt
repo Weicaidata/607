@@ -19,7 +19,7 @@
         {
             "title":"SQL: Learn SQL (using MySQL) in One Day and Learn It Well",
             "category":"Computers & Technology",
-            "authors": "Jamie Chan","LCF Publishing"
+            "authors": "Jamie Chan","LCF Publishing",
             "publisher":"LCF Publishing",
             "publish_date":"01-01-2018",
             "price":"11.67"
