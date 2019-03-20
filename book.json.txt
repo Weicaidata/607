@@ -1,0 +1,28 @@
+{
+    "books":[
+        {            
+            "title":"SQL Cookbook: Query Solutions and Techniques for Database Developers",
+            "category":"Computers & Technology",
+            "authors": "Anthony Molinaro",
+            "publisher":"O'Reilly",
+            "publish_date":"12-01-2005",
+            "price":"33.14"
+        },
+        {
+            "title":"T-SQL Fundamentals",
+            "category":"Computers & Technology",
+            "authors": "VItzik Ben-Gan",
+            "publisher":"Microsoft",
+            "publish_date":"02-01-2016",
+            "price":"43.48"
+        },
+        {
+            "title":"SQL: Learn SQL (using MySQL) in One Day and Learn It Well",
+            "category":"Computers & Technology",
+            "authors": "["Jamie Chan","LCF Publishing"]
+            "publisher":"LCF Publishing",
+            "publish_date":"01-01-2018",
+            "price":"11.67"
+        }
+    ]
+}

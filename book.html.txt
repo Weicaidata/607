@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>Favorite Books in SQL</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Authors</th>
+          <th>Publisher</th>
+          <th>Publish_date</th>
+          <th>Price</th>
+      </tr>
+      <tr>
+          <td>SQL Cookbook: Query Solutions and Techniques for Database Developers</td>
+          <td>Computers & Technology</td>
+          <td>Anthony Molinaro</td>
+          <td>O'Reilly</td>
+          <td>12-01-2005</td>
+          <td>33.14</td>
+      </tr>
+      <tr>
+          <td>T-SQL Fundamentals</td>
+          <td>Computers & Technology</td>
+          <td>VItzik Ben-Gan</td>
+          <td>Microsoft</td>
+          <td>02-01-2016</td>
+          <td>43.48</td>
+      </tr>
+      <tr>
+          <td>SQL: Learn SQL (using MySQL) in One Day and Learn It Well</td>
+          <td>Computers & Technology</td>
+          <td>Jamie Chan,LCF Publishing</td>
+          <td>LCF Publishing</td>
+          <td>01-01-2018</td>
+          <td>11.67</td>
+      </tr>
+  </table>
+  </body>
+</html>
