@@ -1,0 +1,49 @@
+---
+title: "HW7"
+author: "Weijian Cai"
+date: "March 17, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+library(XML)
+library(knitr)
+library(jsonlite)  
+library(RCurl)
+library(DT)
+```
+
+
+##Json format:
+```{r}
+book_json<- fromJSON("https://raw.githubusercontent.com/Weicaidata/607/master/book.json.txt")
+book_json <- as.data.frame(book_json)
+datatable(book_json)
+```
+
+
+##HTML format:
+```{r}
+html <- getURL("https://raw.githubusercontent.com/Weicaidata/607/master/book1.html")
+book_html <- readHTMLTable(html)
+book_html <- as.data.frame(book_html)
+datatable(book_html)
+
+```
+
+##XML format:
+```{r}
+url <- getURL("https://raw.githubusercontent.com/Weicaidata/607/master/book5.xml")
+xml <- xmlParse(url)
+root <- xmlRoot(xml)
+book_xml <- xmlToDataFrame(root)
+datatable(book_xml)
+```
+
+
+
