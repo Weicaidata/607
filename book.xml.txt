@@ -2,7 +2,7 @@
 <root>
   <book>
     <title>SQL Cookbook: Query Solutions and Techniques for Database Developers</title>
-    <category>Computers & Technology</category>
+    <category>ComputersTechnology</category>
     <authors>Anthony Molinaro</authors>
     <publisher>O'Reilly<publisher>
     <publish_date>12-01-2005</publish_date>
@@ -10,7 +10,7 @@
   </book>
   <book>
      <title>T-SQL Fundamentals</title>
-     <category>Computers & Technology</category>
+     <category>ComputersTechnology</category>
      <authors>VItzik Ben-Gan</authors>
      <publisher>Microsoft<publisher>
      <publish_date>02-01-2016</publish_date>
@@ -18,7 +18,7 @@
   </book>
   <book>
      <title>Learn SQL (using MySQL) in One Day and Learn It Well</title>
-     <category>Computers & Technology</category>
+     <category>ComputersTechnology</category>
      <authors>Jamie Chan,LCF Publishing</authors>
      <publisher>LCF Publishing<publisher>
      <publish_date>01-01-2018</publish_date>
