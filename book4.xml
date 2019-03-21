@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+  <book>
+    <Title>SQL Cookbook: Query Solutions and Techniques for Database Developers</Title>
+    <Categgory>ComputersTechnology</Category>
+    <Authors>Anthony Molinaro</Authers>
+    <Publisher>O'Reilly</Publisher>
+    <Publish_date>12-01-2005</Publish_date>
+    <Price>33.14</Price>
+  </book>
+  <book>
+    <Title>T-SQL Fundamentals</Title>
+    <Categgory>ComputersTechnology</Category>
+    <Authors>VItzik Ben-Gan</Authers>
+    <Publisher>Microsoft</Publisher>
+    <Publish_date>02-01-2016</Publish_date>
+    <Price>43.48</Price>
+  </book>
+  <book>
+    <Title>Learn SQL (using MySQL) in One Day and Learn It Well</Title>
+    <Categgory>ComputersTechnology</Category>
+    <Authors>$15.40</Authers>
+    <Publisher>Jamie Chan,LCF Publishing</Publisher>
+    <Publish_date>LCF Publishing</Publish_date>
+    <Price>11.67</Price>
+  </book>
+</root>
