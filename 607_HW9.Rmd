@@ -1,0 +1,24 @@
+---
+title: "DATA 607 Week 9 Assignment - Web APIs"
+author: "Weijian Cai"
+date: "March 31, 2019"
+output: html_document
+---
+
+
+```{r,error=FALSE}
+library(jsonlite)
+library(httr)
+library(DT)
+```
+
+```{r}
+url <- "https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json"
+  api_key <- "xbuqHAyVZEV7g5j8aBiOvrvOhvgEUtc8"
+  url <- paste0(url, '?api-key=', api_key)
+  df <- data.frame(jsonlite::fromJSON(url, flatten = TRUE))
+  summary(df)
+  datatable(df)
+```
+
+
