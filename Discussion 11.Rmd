@@ -1,0 +1,30 @@
+---
+title: "Discussion 11"
+author: "Weijian Cai"
+date: "April 10, 2019"
+output: html_document
+---
+
+
+###Google news feed system
+Google News is a computer-generated news website that aggregates headlines from news sources worldwide. It classifies news articles into different topic categories and displays them in corresponding sections, as do standard news websites, but with fully automated text-based classification.
+
+####Target users
+users who looking for personalization news around the world, and provides numerous editions for different countries and languages.
+
+####Key goals
+Build a stronger future for news
+
+####How to accomplish these goals
+Use AI technology to automat match reader's interest and history.
+
+####Reverse Engineering
+Users usually visit homepage with the "Top Stories"" section on the top and followed by other topics. Once users sign in with their google account and enable web history, their system will come in and have a log of your browsing history data and will generate a personalized related topics for him or her. Google they use a collaborative filtering method, it able to push recommendation news stories to the users who have the similar browsing history.  The filtering has been applied to personalized selection of news. Google use the same method to build a very strong user profiles, and will compare with the content of the news to create personalized recommendations.
+
+
+####Recommendation
+There are some problems with their recommendation system, it will not push news that have not been read by other users. It will casue the problem that users may not get the news in a timely manner. People has to wait several hours for its system to reconite and push to others. 
+
+####References
+http://blog.gainlo.co/index.php/2016/03/29/design-news-feed-system-part-1-system-design-interview-questions/
+https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/35599.pdf
