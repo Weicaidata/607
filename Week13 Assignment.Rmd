@@ -1,0 +1,55 @@
+---
+title: "Week13 Assignemnt-NoSQL Migration"
+author: "Weijian Cai"
+date: "April 29, 2019"
+output: html_document
+---
+
+For this assignment,take information from a relational database and migrate it to a NoSQL database.
+
+```{r}
+library(RMySQL)
+library(sqldf)
+library(mongolite)
+```
+
+###Connect to local MySQL Database
+```{r}
+mydb<-dbConnect(MySQL(), user='wei', password='0000', dbname='movie_survey', host='localhost')
+```
+
+###write sql to join three tables
+```{r}
+sr<- dbGetQuery(mydb, "
+                select s.survey_id, r.firstname, r.lastname, r.sex,                                   m.moviesname, m.type, s.score,s.date
+                from survey s
+                     join movies m on s.movie_id = m.movies_id
+                     join respondents r on s.respondent_id = r.respondents_id")
+head(sr)
+```
+
+###Disconnect from local mysql database
+```{r}
+dbDisconnect(mydb)
+```
+
+###migrate database into local Mongodb database
+```
+mangodb <- mongo(collection = "airports", db = "mgdb")
+```
+
+
+
+####Advantage of relational database
+It works with well-structured data. We can easily pull data from database like MySQL writing SQL. 
+
+###Advantage of NoSQL database
+A NoSQL database is good for storing and processing large amounts of unstructured data.
+
+####Disadvantages of relational databases
+1.It requires well developed architecture before loading data into database, it could be huge challenge when we deal with a large and complicate dataset. 
+2.It requires someone who has great expertise to design the database to fulfill the 3 normalization forms.
+It is time consuming for optimizing the database which is very complicated.
+
+####Disadvantages of NoSQL databases
+It lacks of standardization, it may needs a standard query language like SQL.
